@@ -23,20 +23,16 @@ function makeGrid(x){
     }
 }
 
-makeGrid(10);
+makeGrid(20);
 
+function clearGrid(parent){
+    while (parent.firstChild){
+        parent.removeChild(parent.firstChild);
+    }
+}
 
-
-// this only made the 1st box to change colour when mouse entered any box2
-// const boxes = document.querySelectorAll(".box2");
-
-// boxes.forEach(boxes =>{
-//     boxes.addEventListener("mouseover", (e)=>{
-//         document.querySelector(".box2").style.background = "red"
-//     })
-// })
-
-// document.querySelector(".box2").addEventListener("mouseover", () => {
-//     document.querySelector(".box2").style.background = "red"
-// })
-
+const btnClear = document.querySelector("#clear");
+btnClear.addEventListener("click", () => {
+    clearGrid(gridWrapper);
+    makeGrid(20);
+});
