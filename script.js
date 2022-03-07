@@ -1,16 +1,14 @@
 const gridWrapper = document.querySelector(".gridWrapper")
 const box = document.createElement("div");
+let gridSize = 16;
 // gridWrapper.appendChild(box);
 box.classList.add("box");
            
 function makeGrid(x){
-    if(x>100){
-        alert("Please pick a smaller number")
-    }else
     for(i=0; i<x; i++){
-        const box = document.createElement("div");
-        gridWrapper.appendChild(box);
-        box.classList.add("box");
+    const box = document.createElement("div");
+    gridWrapper.appendChild(box);
+    box.classList.add("box");
         for(j=0; j<x; j++){
             const box2 = document.createElement("div");
             box.appendChild(box2);
@@ -23,16 +21,22 @@ function makeGrid(x){
     }
 }
 
-makeGrid(20);
+makeGrid(gridSize);
 
-function clearGrid(parent){
-    while (parent.firstChild){
-        parent.removeChild(parent.firstChild);
+function clearGrid(){
+    while (gridWrapper.firstChild){
+        gridWrapper.removeChild(gridWrapper.firstChild);
     }
+    gridSize = prompt("How big would you like the grid?","16");
+    if(gridSize > 100)
+    {
+        alert("Please pick a number under 100")
+        clearGrid();
+    }
+    makeGrid(gridSize);
 }
 
 const btnClear = document.querySelector("#clear");
 btnClear.addEventListener("click", () => {
-    clearGrid(gridWrapper);
-    makeGrid(20);
+    clearGrid();
 });
