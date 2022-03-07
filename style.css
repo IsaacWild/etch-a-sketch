@@ -6,7 +6,6 @@
     font-family: 'Roboto', sans-serif;
 }
 .header{
-    
     font-size: 50px;
     font-style: italic;
     font-weight: 1000;
@@ -16,4 +15,22 @@
 
 .gridWrapper{
     border: dashed blue;
+    display: flex;
+    height: 700px;
+    width: 700px;
+}
+
+.box{
+    /* height: 20px;
+    width: 20px; */
+    /* border: solid black 3px; */
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+}
+
+.box2{
+    flex: auto;
+    border: solid black 1px;
+    background-color: rgb(255, 255, 255);
 }
